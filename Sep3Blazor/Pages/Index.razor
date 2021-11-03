@@ -6,7 +6,7 @@
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
-<input type="submit" value="Submit edited" @onclick="Edit">
+<input type="submit" value="Get the second object from database" @onclick="Get">
 
 @if (SearchPhrase == null)
 {
@@ -36,9 +36,10 @@ else
 
     
 
-    public async Task Edit()
+    public async Task Get()
     {
-        Adults = await AdultService.Connect("2");
+        await AdultService.Post("Dorin Smart");
+        Adults = await AdultService.Connect("5");
         SearchPhrase = Adults[0];
 
     }

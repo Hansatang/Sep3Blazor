@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Sep3Blazor.Model;
 
 namespace Sep3Blazor.Data
 {
@@ -36,8 +37,35 @@ namespace Sep3Blazor.Data
         {
             Console.WriteLine("Hello");
             // send to server
-            string message = s;
-            byte[] dataToServer = Encoding.ASCII.GetBytes(message);
+            Message message = new Message(s, "Get");
+            string request = JsonSerializer.Serialize(message);
+            byte[] dataToServer = Encoding.ASCII.GetBytes(request);
+            stream.Write(dataToServer, 0, dataToServer.Length);
+
+            // read response
+            try
+            {
+                byte[] fromServer = new byte[8192];
+                int bytesRead = stream.Read(fromServer, 0, fromServer.Length);
+                string response = Encoding.ASCII.GetString(fromServer, 0, bytesRead);
+                AdultsList = JsonSerializer.Deserialize<List<String>>(response);
+                Console.WriteLine("hi"+response);
+                return Task.FromResult(AdultsList);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
+            //tcpClient.Close();
+        }
+        
+        public Task<IList<string>> Post(string s)
+        {
+            Message message = new Message(s, "Post");
+            string request = JsonSerializer.Serialize(message);
+            byte[] dataToServer = Encoding.ASCII.GetBytes(request);
             stream.Write(dataToServer, 0, dataToServer.Length);
 
             // read response

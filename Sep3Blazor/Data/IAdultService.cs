@@ -13,5 +13,6 @@ namespace Sep3Blazor.Data
 
         public Task<IList<string>> Connect(String s);
         
+        public Task<IList<string>> Post(String s);
     }
 }

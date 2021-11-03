@@ -114,9 +114,10 @@ using Sep3Blazor.Data;
 
     
 
-    public async Task Edit()
+    public async Task Get()
     {
-        Adults = await AdultService.Connect("2");
+        await AdultService.Post("Dorin Smart");
+        Adults = await AdultService.Connect("5");
         SearchPhrase = Adults[0];
 
     }
