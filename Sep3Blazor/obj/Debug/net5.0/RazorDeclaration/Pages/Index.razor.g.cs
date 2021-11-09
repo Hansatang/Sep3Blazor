@@ -108,7 +108,7 @@ using Sep3Blazor.Data;
     {
        // base.OnInitialized();
         Console.WriteLine("2str");
-        Adults = await AdultService.Connect("1");
+        Adults = await _groupService.Connect("3");
         SearchPhrase = Adults[0];
     }
 
@@ -116,8 +116,8 @@ using Sep3Blazor.Data;
 
     public async Task Get()
     {
-        await AdultService.Post("Dorin Smart");
-        Adults = await AdultService.Connect("5");
+        Adults =await _groupService.Post("Dorin Smart");
+        // Adults = await AdultService.Connect("5");
         SearchPhrase = Adults[0];
 
     }
@@ -126,7 +126,7 @@ using Sep3Blazor.Data;
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IAdultService AdultService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGroupService _groupService { get; set; }
     }
 }
 #pragma warning restore 1591

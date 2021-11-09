@@ -28,8 +28,7 @@ namespace Sep3Blazor
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddScoped<IAdultService, AdultService>();
-            services.AddSingleton<WeatherForecastService>();
+            services.AddScoped<IGroupService, GroupService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +49,7 @@ namespace Sep3Blazor
             app.UseStaticFiles();
 
             app.UseRouting();
+            
 
             app.UseEndpoints(endpoints =>
             {

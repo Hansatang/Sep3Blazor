@@ -56,3 +56,10 @@ C:\Users\krzys\RiderProjects\Sep3Blazor\Sep3Blazor\obj\Debug\net5.0\ref\Sep3Blaz
 C:\Users\krzys\RiderProjects\Sep3Blazor\Sep3Blazor\obj\Debug\net5.0\Sep3Blazor.pdb
 C:\Users\krzys\RiderProjects\Sep3Blazor\Sep3Blazor\obj\Debug\net5.0\Sep3Blazor.genruntimeconfig.cache
 C:\Users\krzys\RiderProjects\Sep3Blazor\Sep3Blazor\obj\Debug\net5.0\Sep3Blazor.csproj.CopyComplete
+C:\Users\krzys\RiderProjects\Sep3Blazor\Sep3Blazor\bin\Debug\net5.0\Google.Protobuf.dll
+C:\Users\krzys\RiderProjects\Sep3Blazor\Sep3Blazor\bin\Debug\net5.0\Grpc.AspNetCore.Server.dll
+C:\Users\krzys\RiderProjects\Sep3Blazor\Sep3Blazor\bin\Debug\net5.0\Grpc.AspNetCore.Server.ClientFactory.dll
+C:\Users\krzys\RiderProjects\Sep3Blazor\Sep3Blazor\bin\Debug\net5.0\Grpc.Core.Api.dll
+C:\Users\krzys\RiderProjects\Sep3Blazor\Sep3Blazor\bin\Debug\net5.0\Grpc.Net.Client.dll
+C:\Users\krzys\RiderProjects\Sep3Blazor\Sep3Blazor\bin\Debug\net5.0\Grpc.Net.ClientFactory.dll
+C:\Users\krzys\RiderProjects\Sep3Blazor\Sep3Blazor\bin\Debug\net5.0\Grpc.Net.Common.dll
