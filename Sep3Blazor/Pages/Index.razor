@@ -30,7 +30,7 @@ else
     {
        // base.OnInitialized();
         Console.WriteLine("2str");
-        Adults = await _groupService.Connect("3");
+        Adults = await _groupService.GetGroup("3");
         SearchPhrase = Adults[0];
     }
 
@@ -38,7 +38,7 @@ else
 
     public async Task Get()
     {
-        Adults =await _groupService.Post("Dorin Smart");
+        Adults =await _groupService.PostGroup("Dorin Smart");
         // Adults = await AdultService.Connect("5");
         SearchPhrase = Adults[0];
 

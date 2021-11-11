@@ -8,8 +8,8 @@ namespace Sep3Blazor.Data
     {
         public IList<String> AdultsList { get; }
 
-        public Task<IList<string>> Connect(String s);
+        public Task<IList<string>> GetGroup(String s);
         
-        public Task<IList<string>> Post(String s);
+        public Task<IList<string>> PostGroup(String s);
     }
 }
