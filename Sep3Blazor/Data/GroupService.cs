@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Grpc.Net.Client;
+using Sep3Blazor.Model;
 
 
 namespace Sep3Blazor.Data
@@ -12,21 +13,22 @@ namespace Sep3Blazor.Data
     public class GroupService : IGroupService
     {
         private readonly String URL = "https://localhost:5004";
-        public IList<String> AdultsList { get; set; }
+        public IList<Note> NoteList { get; set; }
+        public IList<Group> GroupList { get; set; }
        
 
-        public async Task<IList<string>> GetGroups(string s)
+        public async Task<IList<Note>> GetNoteList(string s)
         {
             using var channel = GrpcChannel.ForAddress(URL);
             var client = new BusinessServer.BusinessServerClient(channel);
-            var reply = await client.GetGroupAsync(
+            var reply = await client.GetNoteAsync(
                 new Request {Name = "1"});
             Console.WriteLine("Greeting: " + reply.Message);
-            AdultsList = JsonSerializer.Deserialize<List<String>>(reply.Message);
-            return AdultsList;
+            NoteList = JsonSerializer.Deserialize<List<Note>>(reply.Message);
+            return NoteList;
         }
 
-        public async Task<IList<string>> AddGroup(string s)
+        public async Task<IList<Note>> AddNote(string s)
         {
             using var channel = GrpcChannel.ForAddress(URL);
             var client = new BusinessServer.BusinessServerClient(channel);
@@ -34,9 +36,20 @@ namespace Sep3Blazor.Data
             var reply = await client.PostGroupAsync(
                 new Request {Name = s});
             Console.WriteLine("Greeting: " + reply.Message);
-            AdultsList = JsonSerializer.Deserialize<List<String>>(reply.Message);
-            Console.WriteLine(AdultsList[0]);
-            return AdultsList;
+            NoteList = JsonSerializer.Deserialize<List<Note>>(reply.Message);
+            Console.WriteLine(NoteList[0]);
+            return NoteList;
+        }
+        
+        public async Task<IList<Group>> GetGroupList(string s)
+        {
+            using var channel = GrpcChannel.ForAddress(URL);
+            var client = new BusinessServer.BusinessServerClient(channel);
+            var reply = await client.GetGroupAsync(
+                new Request {Name = "1"});
+            Console.WriteLine("Greeting: " + reply.Message);
+            GroupList = JsonSerializer.Deserialize<List<Group>>(reply.Message);
+            return GroupList;
         }
     }
 }

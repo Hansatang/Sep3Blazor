@@ -89,6 +89,13 @@ using Sep3Blazor.Data;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\krzys\RiderProjects\Sep3Blazor\Sep3Blazor\Pages\Index.razor"
+using Sep3Blazor.Model;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -98,27 +105,31 @@ using Sep3Blazor.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 24 "C:\Users\krzys\RiderProjects\Sep3Blazor\Sep3Blazor\Pages\Index.razor"
+#line 26 "C:\Users\krzys\RiderProjects\Sep3Blazor\Sep3Blazor\Pages\Index.razor"
  
     public string SearchPhrase;
-    public IList<String> Adults { get; set; }
+    public string SearchPhrase2;
+    public IList<Note> NoteList { get; set; }
+    public IList<Group> GroupList { get; set; }
 
 
     protected override async Task OnInitializedAsync()
     {
        // base.OnInitialized();
         Console.WriteLine("2str");
-        Adults = await _groupService.GetGroups("3");
-        SearchPhrase = Adults[0];
+        NoteList = await _groupService.GetNoteList("3");
+        GroupList = await _groupService.GetGroupList("1");
+        SearchPhrase = NoteList[0].text;
+        SearchPhrase2 = GroupList[0].name;
     }
 
     
 
     public async Task Get()
     {
-        Adults =await _groupService.AddGroup("Dorin Smart");
+        NoteList =await _groupService.AddNote("Dorin Smart");
         // Adults = await AdultService.Connect("5");
-        SearchPhrase = Adults[0];
+        SearchPhrase = NoteList[0].text;
 
     }
 
