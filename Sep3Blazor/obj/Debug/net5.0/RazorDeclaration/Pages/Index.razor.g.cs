@@ -108,7 +108,7 @@ using Sep3Blazor.Data;
     {
        // base.OnInitialized();
         Console.WriteLine("2str");
-        Adults = await _groupService.Connect("3");
+        Adults = await _groupService.GetGroups("3");
         SearchPhrase = Adults[0];
     }
 
@@ -116,7 +116,7 @@ using Sep3Blazor.Data;
 
     public async Task Get()
     {
-        Adults =await _groupService.Post("Dorin Smart");
+        Adults =await _groupService.AddGroup("Dorin Smart");
         // Adults = await AdultService.Connect("5");
         SearchPhrase = Adults[0];
 

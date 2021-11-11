@@ -1,2 +1,0 @@
-obj\Debug\net5.0\Protos/BusinessServer.cs \
-obj\Debug\net5.0\Protos/BusinessServerGrpc.cs: Protos/businessServer.proto

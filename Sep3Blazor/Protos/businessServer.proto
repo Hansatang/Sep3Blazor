@@ -7,18 +7,19 @@ package BusinessServ;
 // The greeting service definition.
 service BusinessServer {
   // Sends a greeting
-  rpc GetGroup (GroupRequest) returns (GroupReply);
-  rpc PostGroup (GroupRequest) returns (GroupReply);
+  rpc GetGroup (Request) returns (Reply);
+  rpc PostGroup (Request) returns (Reply);
 }
 
 
 // The request message containing the user's name.
-message GroupRequest {
+message Request {
   string name = 1;
   string type = 2;
 }
 
 // The response message containing the greetings.
-message GroupReply {
+message Reply {
   string message = 1;
+  string type = 2;
 }

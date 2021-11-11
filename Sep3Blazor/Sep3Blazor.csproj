@@ -13,10 +13,13 @@
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
     </ItemGroup>
-
+    
     <ItemGroup>
-      <Compile Include="obj\Debug\net5.0\Protos\BusinessServer.cs" />
-      <Compile Include="obj\Debug\net5.0\Protos\BusinessServerGrpc.cs" />
+        <Protobuf Include="Protos\businessServer.proto" GrpcServices="Client" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="obj\Debug\net5.0\Protos" />
     </ItemGroup>
 
 </Project>
