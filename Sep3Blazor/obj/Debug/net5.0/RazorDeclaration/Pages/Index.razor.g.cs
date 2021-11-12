@@ -125,11 +125,10 @@ using Sep3Blazor.Model;
 
     
 
-    public async Task Get()
+    public async Task AddGroup()
     {
-        NoteList =await _groupService.AddNote("Dorin Smart");
-        // Adults = await AdultService.Connect("5");
-        SearchPhrase = NoteList[0].text;
+        GroupList =await _groupService.AddGroup("Dorin Smarto");
+        SearchPhrase2 = GroupList[0].name;
 
     }
 
